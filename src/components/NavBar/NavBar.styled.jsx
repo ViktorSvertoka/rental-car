@@ -3,18 +3,21 @@ import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
   border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  gap: 50px;
+  gap: 100px;
 `;
 
 export const Link = styled(NavLink)`
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-family: 'Manrope';
-  font-size: 14px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   color: #000000;
