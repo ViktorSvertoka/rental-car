@@ -1,10 +1,9 @@
-import CarItem from 'components/CarItem/CarItem';
+import { Wrapper } from './Home.styled';
 
 export default function Home() {
   return (
-    <>
-      <h2>Hello</h2>
-      <CarItem />
-    </>
+    <Wrapper>
+      <h2>Hello Home</h2>
+    </Wrapper>
   );
 }

@@ -5,7 +5,7 @@ body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
   background-color: #f3f3f2;
-  background-image: url(../public/images/bg.jpg);
+  background-image: url(./images/bg.jpg);
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;

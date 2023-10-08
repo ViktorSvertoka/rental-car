@@ -13,10 +13,14 @@ export const Nav = styled.nav`
 export const Link = styled(NavLink)`
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: Manrope;
+  font-family: 'Manrope';
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
-  color: #3470ff;
+  color: #000000;
   text-decoration: none;
+
+  &.active {
+    color: #3470ff;
+  }
 `;
