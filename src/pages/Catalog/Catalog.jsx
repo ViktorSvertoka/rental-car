@@ -3,7 +3,7 @@ import CarItem from 'components/CarItem/CarItem';
 import { WrapperFilter, WrapperList, LoadMoreButton } from './Catalog.styled'; // Добавьте импорт для кнопки LoadMore
 import Filter from 'components/Filter/Filter';
 
-import { useGetCarsByPageQuery } from '../../redux/cars';
+import { useGetCarsByPageQuery } from '../../redux/operations';
 
 export default function Catalog() {
   const [page, setPage] = useState(1);
