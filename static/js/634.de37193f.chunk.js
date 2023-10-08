@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrental_car=self.webpackChunkrental_car||[]).push([[634],{7634:function(n,e,r){r.r(e),r.d(e,{default:function(){return i}});var t,a=r(168),c=r(6088).Z.div(t||(t=(0,a.Z)(["\n  padding: 60px 128px;\n"]))),u=r(184);function i(){return(0,u.jsx)(c,{children:(0,u.jsx)("h2",{children:"Hello Favorites"})})}}}]);
+//# sourceMappingURL=634.de37193f.chunk.js.map
