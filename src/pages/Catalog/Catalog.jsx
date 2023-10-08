@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CarItem from 'components/CarItem/CarItem';
-import { WrapperFilter, WrapperList, LoadMoreButton } from './Catalog.styled'; // Добавьте импорт для кнопки LoadMore
+import { WrapperFilter, WrapperList, LoadMore } from './Catalog.styled'; // Добавьте импорт для кнопки LoadMore
 import Filter from 'components/Filter/Filter';
 
 import { useGetCarsByPageQuery } from '../../redux/operations';
+import { Loader } from 'components/Loader/Loader';
 
 export default function Catalog() {
   const [page, setPage] = useState(1);
+  const [allCars, setAllCars] = useState([]); // Стейт для хранения всех карточек
+
   const { data, error, isLoading, isFetching } = useGetCarsByPageQuery(page);
 
   const loadMore = () => {
     setPage(page + 1);
   };
 
-  const allCars = data ? data.reduce((acc, curr) => acc.concat(curr), []) : [];
+  useEffect(() => {
+    if (data) {
+      // Обновляем стейт allCars, добавляя новые карточки
+      setAllCars(prevCars => [...prevCars, ...data]);
+    }
+  }, [data]);
 
   return (
     <>
@@ -22,9 +30,9 @@ export default function Catalog() {
       </WrapperFilter>
       <WrapperList>
         {error ? (
-          <>Ой, произошла ошибка</>
+          <>Oops, there was an error...</>
         ) : isLoading ? (
-          <>Загрузка...</>
+          <Loader />
         ) : allCars.length > 0 ? (
           <>
             {allCars.map(car => (
@@ -34,9 +42,9 @@ export default function Catalog() {
         ) : null}
       </WrapperList>
       {data && data.length >= 8 && (
-        <LoadMoreButton onClick={loadMore} disabled={isFetching}>
-          Load More
-        </LoadMoreButton>
+        <LoadMore onClick={loadMore} disabled={isFetching}>
+          Load more
+        </LoadMore>
       )}
     </>
   );
