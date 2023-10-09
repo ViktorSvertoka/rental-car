@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Button from 'components/Button/Button';
 import {
   Wrapper,
@@ -11,6 +13,7 @@ import {
   Item,
 } from './CarItem.styled';
 import HeartIcon from 'components/HeartIcon/HeartIcon';
+import BasicModal from 'components/Modal/Modal';
 
 export default function CarItem({
   data: {
@@ -26,7 +29,10 @@ export default function CarItem({
     accessories,
   },
 }) {
-  console.log(CarItem);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Wrapper>
       <ImageWrap>
@@ -49,7 +55,8 @@ export default function CarItem({
         <Item>{mileage}</Item>
         <Item>{accessories[0]}</Item>
       </List>
-      <Button text="Learn more" width="274px" />
+      <Button onClick={handleOpen} text="Learn more" width="274px" />
+      {open && <BasicModal open={open} onClose={handleClose} />}
     </Wrapper>
   );
 }

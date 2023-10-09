@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CarItem from 'components/CarItem/CarItem';
 import { WrapperFilter, WrapperList, LoadMore } from './Catalog.styled';
 import Filter from 'components/Filter/Filter';
