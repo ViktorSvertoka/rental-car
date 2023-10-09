@@ -33,14 +33,14 @@ export const TitleWrap = styled.div`
 
 export const Title = styled.h3`
   color: #121417;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
 `;
 
 export const Span = styled.span`
   color: #3470ff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
 `;
@@ -59,6 +59,9 @@ export const List = styled.ul`
   width: fit-content;
   row-gap: 4px;
   margin-bottom: 28px;
+  width: 255px;
+  height: 40px;
+  overflow: hidden;
 `;
 
 export const Item = styled.li`

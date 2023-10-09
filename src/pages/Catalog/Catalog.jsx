@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CarItem from 'components/CarItem/CarItem';
-import { WrapperFilter, WrapperList, LoadMore } from './Catalog.styled'; // Добавьте импорт для кнопки LoadMore
+import { WrapperFilter, WrapperList, LoadMore } from './Catalog.styled';
 import Filter from 'components/Filter/Filter';
 
 import { useGetCarsByPageQuery } from '../../redux/operations';
@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 
 export default function Catalog() {
   const [page, setPage] = useState(1);
-  const [allCars, setAllCars] = useState([]); // Стейт для хранения всех карточек
+  const [allCars, setAllCars] = useState([]);
 
   const { data, error, isLoading, isFetching } = useGetCarsByPageQuery(page);
 
@@ -18,7 +18,6 @@ export default function Catalog() {
 
   useEffect(() => {
     if (data) {
-      // Обновляем стейт allCars, добавляя новые карточки
       setAllCars(prevCars => [...prevCars, ...data]);
     }
   }, [data]);
