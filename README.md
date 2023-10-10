@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Тестове завдання
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Page](./assets/1.jpg) ![Page](./assets/2.jpg) ![Page](./assets/3.jpg)
 
-## Available Scripts
+Створити застосунок для компанії, що надає послуги надання в Україні автомобілів
+в оренду. Застосунок складається з 3х сторінок:
 
-In the project directory, you can run:
+- домашня сторінка з загальним описом послуг, що надає компанія. Стилізація та
+  оформлення на ваш розсуд.
+- сторінка, що містить каталог автівок різної комплектації, які користувач може
+  фільтрувати за маркою, ціною за годину оренди авто та кількістю кілометрів,
+  яку подолав автомобіль під час його експлуатації (пробіг).
+- сторінка з оголошеннями, які були додані користувачем в улюблені Зовнішній
+  вигляд програми повинен складатися з cайдбару та області перегляду.
 
-### `npm start`
+## Технічне завдання
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Відповідно до
+   [макету](https://www.figma.com/file/XhC8FSCfAkraEF5l7Hx4fL/Test?type=design&node-id=0-1&mode=design&t=Ed3b0heFOmE2LSXU-0)
+   реалізувати картку оголошення про здачу авто в оренду.
+2. На першій сторінці каталогу має рендеритися 8 оголошень, а їх решта - по
+   кліку на кнопку `Load more`.
+3. У разі кліку по кнопці у вигляді “серця” на картці оголошення воно має
+   додаватися до списку улюблених, а колір кнопки змінюватися.
+4. При оновленні сторінки має фіксуватись кінцевий результат дій користувача.
+   Тобто, якщо додати оголошення в улюблені та оновити сторінку - то кнопка все
+   одно залишається в стані “улюбленого оголошення” із відповідним кольором.
+5. У разі повторного кліку по кнопці у вигляді “серця” оголошення повинно бути
+   видалене зі списку улюблених, а колір кнопки змінитись до початкового стану.
+6. У разі кліку по кнопці Learn more має відкриватись модальне вікно з детальною
+   інформацією про авто та умови його оренди.
+7. Модальне вікно повинно закриватись по кліку на кнопку у вигляді “хрестика”,
+   по кліку на `backdrop` або натисканню на клавішу `Esc`.
+8. В коді пробіг авто має бути прописаний одним значенням (наприклад, 4500). В
+   UI - виведено через кому (4,500).
+9. Кнопку `Rental car` слід реалізувати як посилання, що надаватиме можливість
+   користувачу зʼєднатись з компанією за номером телефону +380730000000.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Створи маршрутизацію, використовуючи `React Router`. У застосунку повинні бути
+такі маршрути:
 
-### `npm test`
+- `“/”` - домашня сторінка з загальним описом послуг, що надає компанія
+- `“/catalog”` - сторінка, що містить каталог автівок різної комплектації
+- `“/favorites”` - сторінка з оголошеннями, які були додані користувачем в
+  улюблені Якщо користувач зайшов за маршрутом, якого не існує, його необхідно
+  перенаправляти на домашню сторінку. Для роботи зі списком оголошень створи
+  свій персональний бекенд для розробки за допомогою UI-сервісу
+  https://mockapi.io/. Створи ресурс adverts. Використай конструктор ресурсу та
+  опиши об'єкт оголошення, як описано нижче.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Advert
 
-### `npm run build`
+1. Створіть `advert` в **Mockapi** з наступними полями: `id`, `year`, `make`,
+   `model`, `type`, `img`, `description`, `fuelConsumption`, `engineSize`,
+   `accessories`, `functionalities`, `rentalPrice`, `rentalCompany`, `address`,
+   `rentalConditions`, `mileage` (див. скріншот нижче). Для наповнення колекції
+   можна взяти
+   [adverts.json](https://drive.google.com/file/d/1sDtZQX4awbRiqa5mSagngqKBZeMMRUMO/view)
+   ![Page](./assets/4.png)
+2. Зображення авто можете підібрати самостійно.
+3. В базі має бути від 32 оголошень з різними значеннями (на ваш розсуд).
+   Реалізована пагінація, де одна сторінка пагінації повинна вміщати 8
+   оголошень.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Додаткове завдання
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Додай фільтрацію:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. `dropdown` із марками автомобіля
+   [makes.json](https://drive.google.com/file/d/1ywi6jdoqq0llsd2yDcRKwuLhuL3ds_5z/view) -
+   показати оголошення з автівками відповідної марки
+2. `dropdown` із цінами за годину оренди авто (крок 10$) - показати оголошення з
+   автівками, ціна за оренду яких належить до діапазону цін, обраних
+   користувачем
+3. група `input` для визначення діапазону пробігу, в межах якого користувач
+   шукатиме оголошення
 
-### `npm run eject`
+## Критерії виконання
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Верстка фіксована в `рх`, семантична та валідна.
+- Немає помилок в консолі браузера.
+- Інтерактивність працює відповідно до технічного завдання.
+- Код відформатований та без коментарів.
+- В репозиторії має бути описаний **README.md**.
+- Проєкт задеплоїний на **github pages** або **netlify.com**
