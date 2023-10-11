@@ -117,7 +117,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
       </SelectContainer>
 
       <SelectContainer>
-        <Label htmlFor="priceSelect">Price/ 1 hour</Label>
+        <Label htmlFor="priceSelect">Price / 1 hour</Label>
         <Select
           id="priceSelect"
           placeholder="To $"
