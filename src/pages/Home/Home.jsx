@@ -1,9 +1,9 @@
-import { Wrapper } from './Home.styled';
+import { Wrapper, Text } from './Home.styled';
 
 export default function Home() {
   return (
     <Wrapper>
-      <h2>Hello Home</h2>
+      <Text>Welcome to Your Car Rental Destination!</Text>
     </Wrapper>
   );
 }

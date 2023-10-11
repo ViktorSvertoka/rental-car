@@ -10,7 +10,6 @@ import {
 import { Loader } from 'components/Loader/Loader';
 
 export default function Catalog({ favoritesCars, setFavoritesCars }) {
-  // console.log(favoritesCars);
   const [page, setPage] = useState(1);
   const [allCars, setAllCars] = useState([]);
   const { data, error, isLoading, isFetching } = useGetCarsByPageQuery(page);
@@ -114,7 +113,7 @@ export default function Catalog({ favoritesCars, setFavoritesCars }) {
               />
             ))
           ) : (
-            <div>No results found for the selected criteria.</div>
+            <div>No matches found based on the chosen criteria.</div>
           )
         ) : error ? (
           <>Oops, there was an error...</>

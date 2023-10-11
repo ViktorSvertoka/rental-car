@@ -8,8 +8,8 @@ import {
   InputRight,
   Label,
   SelectContainer,
-  UnitLeft,
-  UnitRight,
+  SpanLeft,
+  SpanRight,
 } from './Filter.styled';
 
 import { useState } from 'react';
@@ -56,7 +56,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
       parseInt(minValue.replace(/,/g, ''), 10) >
       parseInt(maxValue.replace(/,/g, ''), 10)
     ) {
-      toast.error('Minimum mileage cannot be greater than maximum mileage');
+      toast.error('The maximum mileage must exceed the minimum mileage.');
       return;
     }
 
@@ -169,13 +169,13 @@ export default function Filter({ makes, prices, onFilterChange }) {
             value={formatMileage(minValue)}
             onChange={handleMinInputChange}
           />
-          <UnitLeft>From</UnitLeft>
+          <SpanLeft>From</SpanLeft>
           <InputRight
             type="text"
             value={formatMileage(maxValue)}
             onChange={handleMaxInputChange}
           />
-          <UnitRight>To</UnitRight>
+          <SpanRight>To</SpanRight>
         </InputContainer>
       </Form>
       <Button text="Search" onClick={handleFilterClick} width="135px" />

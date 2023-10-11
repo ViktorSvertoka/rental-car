@@ -1,19 +1,23 @@
 import CarItem from 'components/CarItem/CarItem';
-import { Wrapper } from './Favorites.styled';
+import { Wrapper, WrapperList, Text } from './Favorites.styled';
 
 export default function Favorites({ favoritesCars, setFavoritesCars }) {
   return (
     <Wrapper>
-      <ul>
-        {favoritesCars.map(favorite => (
-          <CarItem
-            key={favorite.id}
-            data={favorite}
-            favoritesCars={favoritesCars}
-            setFavoritesCars={setFavoritesCars}
-          />
-        ))}
-      </ul>
+      <WrapperList>
+        {favoritesCars.length ? (
+          favoritesCars.map(favorite => (
+            <CarItem
+              key={favorite.id}
+              data={favorite}
+              favoritesCars={favoritesCars}
+              setFavoritesCars={setFavoritesCars}
+            />
+          ))
+        ) : (
+          <Text>Your favorites are currently empty...</Text>
+        )}
+      </WrapperList>
     </Wrapper>
   );
 }
