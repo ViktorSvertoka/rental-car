@@ -9,7 +9,8 @@ import {
 } from '../../redux/operations';
 import { Loader } from 'components/Loader/Loader';
 
-export default function Catalog({ favorites, setFavorites }) {
+export default function Catalog({ favoritesCars, setFavoritesCars }) {
+  // console.log(favoritesCars);
   const [page, setPage] = useState(1);
   const [allCars, setAllCars] = useState([]);
   const { data, error, isLoading, isFetching } = useGetCarsByPageQuery(page);
@@ -108,8 +109,8 @@ export default function Catalog({ favorites, setFavorites }) {
               <CarItem
                 key={index}
                 data={car}
-                favorites={favorites}
-                setFavorites={setFavorites}
+                favoritesCars={favoritesCars}
+                setFavoritesCars={setFavoritesCars}
               />
             ))
           ) : (
@@ -120,7 +121,14 @@ export default function Catalog({ favorites, setFavorites }) {
         ) : isLoading ? (
           <Loader />
         ) : allCars.length > 0 ? (
-          allCars.map((car, index) => <CarItem key={index} data={car} />)
+          allCars.map((car, index) => (
+            <CarItem
+              key={index}
+              data={car}
+              favoritesCars={favoritesCars}
+              setFavoritesCars={setFavoritesCars}
+            />
+          ))
         ) : null}
         {!isFiltering && data && data.length >= 8 && (
           <LoadMore variant="text" onClick={loadMore} disabled={isFetching}>

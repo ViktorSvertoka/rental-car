@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { lazy, useState } from 'react';
+import { lazy, useEffect, useState } from 'react';
 import Layout from 'components/Layout/Layout';
 
 const Home = lazy(() => import('../../pages/Home/Home'));
@@ -7,7 +7,12 @@ const Catalog = lazy(() => import('../../pages/Catalog/Catalog'));
 const Favorites = lazy(() => import('../../pages/Favorites/Favorites'));
 
 export default function App() {
-  const [favorites, setFavorites] = useState([]);
+  const [favoritesCars, setFavoritesCars] = useState([]);
+
+  useEffect(() => {
+    const favoritesLS = JSON.parse(localStorage.getItem('favorites')) || [];
+    setFavoritesCars(favoritesLS);
+  }, []);
 
   return (
     <Routes>
@@ -16,13 +21,19 @@ export default function App() {
         <Route
           path="/catalog"
           element={
-            <Catalog favorites={favorites} setFavorites={setFavorites} />
+            <Catalog
+              favoritesCars={favoritesCars}
+              setFavoritesCars={setFavoritesCars}
+            />
           }
         />
         <Route
           path="/favorites"
           element={
-            <Favorites favorites={favorites} setFavorites={setFavorites} />
+            <Favorites
+              favoritesCars={favoritesCars}
+              setFavoritesCars={setFavoritesCars}
+            />
           }
         />
         <Route path="*" element={<Home />} />

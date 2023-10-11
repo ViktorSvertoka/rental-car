@@ -1,14 +1,17 @@
+import CarItem from 'components/CarItem/CarItem';
 import { Wrapper } from './Favorites.styled';
 
-export default function Favorites({ favorites }) {
+export default function Favorites({ favoritesCars, setFavoritesCars }) {
   return (
     <Wrapper>
-      <h2>Hello Favorites</h2>
       <ul>
-        {favorites.map((favorite, index) => (
-          <li key={index}>
-            {favorite.make} {favorite.model}
-          </li>
+        {favoritesCars.map(favorite => (
+          <CarItem
+            key={favorite.id}
+            data={favorite}
+            favoritesCars={favoritesCars}
+            setFavoritesCars={setFavoritesCars}
+          />
         ))}
       </ul>
     </Wrapper>

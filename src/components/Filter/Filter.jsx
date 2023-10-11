@@ -93,7 +93,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
               borderRadius: '14px',
               padding: '8px',
               fontSize: '16px',
-              fontFamily: 'ManropeMedium',
+              fontFamily: 'Manrope',
               backgroundColor: 'rgba(247, 247, 251, 1)',
               appearance: 'none',
             }),
@@ -101,24 +101,10 @@ export default function Filter({ makes, prices, onFilterChange }) {
               return {
                 ...styles,
                 color: isFocused ? 'black' : 'rgba(18, 20, 23, 0.2)',
-                fontFamily: 'ManropeMedium',
+                fontFamily: 'Manrope',
               };
             },
-            menuList: base => ({
-              ...base,
-              '::-webkit-scrollbar': {
-                width: '9px',
-              },
-              '::-webkit-scrollbar-track': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-              '::-webkit-scrollbar-thumb': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-              '::-webkit-scrollbar-thumb:hover': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-            }),
+
             placeholder: styles => ({
               ...styles,
               color: 'rgba(18, 20, 23, 1)',
@@ -152,7 +138,7 @@ export default function Filter({ makes, prices, onFilterChange }) {
               borderRadius: '14px',
               padding: '8px',
               fontSize: '16px',
-              fontFamily: 'ManropeMedium',
+              fontFamily: 'Manrope',
               backgroundColor: 'rgba(247, 247, 251, 1)',
               appearance: 'none',
             }),
@@ -160,24 +146,10 @@ export default function Filter({ makes, prices, onFilterChange }) {
               return {
                 ...styles,
                 color: isFocused ? 'black' : 'rgba(18, 20, 23, 0.2)',
-                fontFamily: 'ManropeMedium',
+                fontFamily: 'Manrope',
               };
             },
-            menuList: base => ({
-              ...base,
-              '::-webkit-scrollbar': {
-                width: '9px',
-              },
-              '::-webkit-scrollbar-track': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-              '::-webkit-scrollbar-thumb': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-              '::-webkit-scrollbar-thumb:hover': {
-                background: 'rgba(18, 20, 23, 0.05)',
-              },
-            }),
+
             placeholder: styles => ({
               ...styles,
               color: 'rgba(18, 20, 23, 1)',
