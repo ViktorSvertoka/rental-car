@@ -9,7 +9,7 @@ import {
 } from '../../redux/operations';
 import { Loader } from 'components/Loader/Loader';
 
-export default function Catalog() {
+export default function Catalog({ favorites, setFavorites }) {
   const [page, setPage] = useState(1);
   const [allCars, setAllCars] = useState([]);
   const { data, error, isLoading, isFetching } = useGetCarsByPageQuery(page);
@@ -105,7 +105,12 @@ export default function Catalog() {
         {isFiltering ? (
           filteredAdverts !== null && filteredAdverts.length > 0 ? (
             filteredAdverts.map((car, index) => (
-              <CarItem key={index} data={car} />
+              <CarItem
+                key={index}
+                data={car}
+                favorites={favorites}
+                setFavorites={setFavorites}
+              />
             ))
           ) : (
             <div>No results found for the selected criteria.</div>

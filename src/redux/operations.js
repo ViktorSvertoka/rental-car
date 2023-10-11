@@ -19,11 +19,12 @@ export const carsApi = createApi({
       providesTags: ['Advert'],
     }),
     updateFavoriteAdvertById: builder.mutation({
-      query: fields => ({
-        url: `/advert/${fields.id}`,
+      query: ({ id, isFavorite }) => ({
+        url: `/advert/${id}`,
         method: 'PUT',
-        body: fields,
+        body: { isFavorite },
       }),
+
       invalidatesTags: ['Advert'],
     }),
   }),

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Button from 'components/Button/Button';
 import {
   Wrapper,
@@ -14,16 +13,36 @@ import {
 } from './CarItem.styled';
 import HeartIcon from 'components/HeartIcon/HeartIcon';
 import BasicModal from 'components/Modal/Modal';
+import { useGetAdvertsQuery } from 'redux/operations';
 
-export default function CarItem({ data }) {
+export default function CarItem({ data, favorites, setFavorites }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const { data: carsApiData } = useGetAdvertsQuery();
+
+  const isCarInFavorites =
+    favorites && data ? favorites.find(item => item.id === data.id) : false;
+
+  const toggleFavorite = carId => {
+    if (!isCarInFavorites) {
+      const carData = carsApiData.find(item => item.id === carId);
+      setFavorites(prevFavorites => [...prevFavorites, carData]);
+    } else {
+      const updatedFavorites = favorites.filter(item => item.id !== carId);
+      setFavorites(updatedFavorites);
+    }
+
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <Wrapper>
       <ImageWrap>
-        <HeartIcon />
+        <HeartIcon onClick={() => toggleFavorite(data.id)} />
         <Image src={data.img} alt="Car" />
       </ImageWrap>
       <TitleWrap>
