@@ -46,7 +46,11 @@ export default function CarItem({ data, favoritesCars, setFavoritesCars }) {
   return (
     <Wrapper>
       <ImageWrap>
-        <HeartIcon id={data.id} toggleFavorite={toggleFavorite} />
+        <HeartIcon
+          id={data.id}
+          toggleFavorite={toggleFavorite}
+          isFavorite={isCarInFavorites}
+        />
         <Image src={data.img} alt="Car" />
       </ImageWrap>
       <TitleWrap>
