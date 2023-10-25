@@ -11,18 +11,19 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import { filtersReducer } from './filtersSlice';
+import favoritesReducer from './slice';
 import { carsApi } from './operations';
 
 const reducers = combineReducers({
   [carsApi.reducerPath]: carsApi.reducer,
-  filters: filtersReducer,
+  favorites: favoritesReducer,
 });
 
 const persistConfig = {
-  key: 'root',
+  key: 'favorites',
   version: 1,
   storage,
+  whitelist: ['favorites'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

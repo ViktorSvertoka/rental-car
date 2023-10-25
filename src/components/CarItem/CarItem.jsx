@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from 'components/Button/Button';
 import {
   Wrapper,
@@ -13,44 +13,16 @@ import {
 } from './CarItem.styled';
 import HeartIcon from 'components/HeartIcon/HeartIcon';
 import BasicModal from 'components/Modal/Modal';
-import { useGetAdvertsQuery } from 'redux/operations';
 
-export default function CarItem({ data, favoritesCars, setFavoritesCars }) {
+export default function CarItem({ data }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(setFavoritesCars);
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem('favorites', JSON.stringify(favoritesCars));
-  }, [favoritesCars]);
-
-  const { data: carsApiData } = useGetAdvertsQuery();
-
-  const isCarInFavorites = favoritesCars.find(car => car.id === data.id);
-
-  const toggleFavorite = carId => {
-    if (!isCarInFavorites) {
-      const carData = carsApiData.find(item => item.id === carId);
-
-      setFavoritesCars(prevFavorites => [...prevFavorites, carData]);
-    } else {
-      const updatedFavorites = favoritesCars.filter(item => item.id !== carId);
-      setFavoritesCars(updatedFavorites);
-    }
-
-    setIsFavorite(!isFavorite);
-  };
 
   return (
     <Wrapper>
       <ImageWrap>
-        <HeartIcon
-          id={data.id}
-          toggleFavorite={toggleFavorite}
-          isFavorite={isCarInFavorites}
-        />
+        <HeartIcon data={data} />
         <Image src={data.img} alt="Car" />
       </ImageWrap>
       <TitleWrap>

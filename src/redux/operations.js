@@ -14,25 +14,7 @@ export const carsApi = createApi({
       query: () => '/advert',
       providesTags: ['Advert'],
     }),
-    getAdvertById: builder.query({
-      query: id => `/advert/${id}`,
-      providesTags: ['Advert'],
-    }),
-    updateFavoriteAdvertById: builder.mutation({
-      query: ({ id, isFavorite }) => ({
-        url: `/advert/${id}`,
-        method: 'PUT',
-        body: { isFavorite },
-      }),
-
-      invalidatesTags: ['Advert'],
-    }),
   }),
 });
 
-export const {
-  useGetCarsByPageQuery,
-  useGetAdvertsQuery,
-  useGetAdvertByIdQuery,
-  useUpdateFavoriteAdvertByIdMutation,
-} = carsApi;
+export const { useGetCarsByPageQuery, useGetAdvertsQuery } = carsApi;
