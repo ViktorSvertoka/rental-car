@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   padding-left: 128px;
   padding-right: 128px;
+  padding-top: 60px;
 `;
 
 export const WrapperList = styled.ul`

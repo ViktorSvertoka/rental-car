@@ -6,6 +6,7 @@ export const WrapperFilter = styled.div`
   justify-content: center;
   padding-left: 128px;
   padding-right: 128px;
+  padding-top: 40px;
 `;
 
 export const WrapperList = styled.div`

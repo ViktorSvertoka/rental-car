@@ -1,13 +1,16 @@
 import styled from '@emotion/styled';
 
-import Image from '../../images/bg.webp';
+import Image from '../../images/hero.jpg';
 
 export const Wrapper = styled.div`
+  display: flex;
   background-image: url(${Image});
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  height: 600px;
+  width: 100%;
+  height: 100vh;
   padding: 60px 128px;
 `;
 
