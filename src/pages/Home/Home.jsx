@@ -1,4 +1,4 @@
-import { Wrapper, Text } from './Home.styled';
+import { Wrapper } from './Home.styled';
 
 export default function Home() {
   return (
