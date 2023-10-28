@@ -9,7 +9,7 @@ export const WrapperFilter = styled.div`
   padding-top: 40px;
 `;
 
-export const WrapperList = styled.div`
+export const WrapperList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

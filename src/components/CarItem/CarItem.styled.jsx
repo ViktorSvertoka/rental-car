@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.li`
   display: flex;
   width: 274px;
   height: 426px;
