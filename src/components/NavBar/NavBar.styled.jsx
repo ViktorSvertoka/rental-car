@@ -6,10 +6,9 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  top: 0;
+
   width: 100%;
-  background-color: rgba(243, 243, 242, 0.1);
+  background-color: #f3f3f2;
 `;
 
 export const Nav = styled.nav`
