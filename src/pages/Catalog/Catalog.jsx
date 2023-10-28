@@ -8,6 +8,7 @@ import {
   useGetCarsByPageQuery,
 } from '../../redux/operations';
 import { Loader } from 'components/Loader/Loader';
+import NavBar from 'components/NavBar/NavBar';
 
 export default function Catalog() {
   const [page, setPage] = useState(1);
@@ -88,6 +89,7 @@ export default function Catalog() {
 
   return (
     <>
+      <NavBar />
       <WrapperFilter>
         <Filter
           makes={makes}

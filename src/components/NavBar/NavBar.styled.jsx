@@ -6,11 +6,9 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: fixed;
   top: 0;
   width: 100%;
-
   background-color: rgba(243, 243, 242, 0.1);
 `;
 
